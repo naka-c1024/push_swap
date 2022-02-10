@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/10 10:42:31 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:06:16 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	get_median(t_stack *a, size_t unsorted_size)
 void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 {
 	int	ra_times;
-	int	pb_times; // これ本当に必要?
+	int	pb_times;
 	int	pivot;
 	int	i;
 
@@ -107,12 +107,13 @@ void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 		*a = (*a)->next;
 		i++;
 	}
+	i = ra_times;
 	while (ra_times--)
 	{
 		exe_cmd(a, b, RRA);
 	}
-	a_to_b(a, b, unsorted_size / 2);
-	b_to_a(a, b, unsorted_size / 2);
+	a_to_b(a, b, i);
+	b_to_a(a, b, pb_times);
 }
 
 void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
@@ -149,8 +150,8 @@ void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
 	{
 		exe_cmd(a, b, RRB);
 	}
-	a_to_b(a, b, unsorted_size / 2);
-	b_to_a(a, b, unsorted_size / 2);
+	a_to_b(a, b, pa_times);
+	// b_to_a(a, b, unsorted_size / 2);
 }
 
 void	quicksort(t_stack **a, t_stack **b)
