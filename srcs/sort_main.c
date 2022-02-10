@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/10 10:39:21 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:42:31 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 	{
 		exe_cmd(a, b, RRA);
 	}
-	// a_to_b(a, b);
-	// b_to_a(a, b);
+	a_to_b(a, b, unsorted_size / 2);
+	b_to_a(a, b, unsorted_size / 2);
 }
 
 void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
@@ -149,8 +149,8 @@ void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
 	{
 		exe_cmd(a, b, RRB);
 	}
-	// a_to_b(a, b,);
-	// b_to_a(a, b);
+	a_to_b(a, b, unsorted_size / 2);
+	b_to_a(a, b, unsorted_size / 2);
 }
 
 void	quicksort(t_stack **a, t_stack **b)
