@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/10 09:11:21 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:27:13 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 // 	}
 // }
 
-void	b_to_a(t_stack **a, t_stack **b); // 後でこれ消す
+void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size); // 後でこれ消す
 
 int	*bubble_sort(int *array, size_t size)
 {
@@ -79,20 +79,31 @@ int	get_median(t_stack *a)
 	return (median);
 }
 
-void	a_to_b(t_stack **a, t_stack **b)
+t_stack	* create_unsorted_stack(t_stack **a, size_t unsorted_size)
+{
+
+}
+
+void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 {
 	int	ra_times;
 	int	pb_times; // これ本当に必要?
 	int	pivot;
+	int	i;
+	t_stack	*unsorted_stack;
 
-	if (my_lstsize(*a) == 1)
+	if (unsorted_size == 1)
 	{
 		return ;
 	}
-	pivot = get_median(*a);
+
+	unsorted_stack = create_unsorted_stack(a, unsorted_size);
+
+	pivot = get_median(unsorted_stack);
 	ra_times = 0;
 	pb_times = 0;
-	while (*a)
+	i = 0;
+	while (i < unsorted_size)
 	{
 		if ((*a)->value > pivot)
 		{
@@ -105,20 +116,22 @@ void	a_to_b(t_stack **a, t_stack **b)
 			pb_times++;
 		}
 		*a = (*a)->next;
+		i++;
 	}
 	while (ra_times--)
 	{
 		exe_cmd(a, b, RRA);
 	}
-	a_to_b(a, b);
-	b_to_a(a, b);
+	// a_to_b(a, b);
+	// b_to_a(a, b);
 }
 
-void	b_to_a(t_stack **a, t_stack **b)
+void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
 {
 	int	rb_times;
 	int	pa_times; // これ本当に必要?
 	int	pivot;
+	int	i;
 
 	if (my_lstsize(*b) == 1)
 	{
@@ -127,7 +140,8 @@ void	b_to_a(t_stack **a, t_stack **b)
 	pivot = get_median(*b);
 	rb_times = 0;
 	pa_times = 0;
-	while (*b)
+	i = 0;
+	while (i < unsorted_size)
 	{
 		if ((*b)->value > pivot)
 		{
@@ -140,18 +154,19 @@ void	b_to_a(t_stack **a, t_stack **b)
 			pa_times++;
 		}
 		*b = (*b)->next;
+		i++;
 	}
 	while (rb_times--)
 	{
 		exe_cmd(a, b, RRB);
 	}
-	a_to_b(a, b);
-	b_to_a(a, b);
+	// a_to_b(a, b,);
+	// b_to_a(a, b);
 }
 
 void	quicksort(t_stack **a, t_stack **b)
 {
-	a_to_b(a, b);
+	a_to_b(a, b, my_lstsize(*a));
 }
 
 void	sort(t_stack **a, t_stack **b)
