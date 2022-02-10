@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/10 10:27:13 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:39:21 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,33 +55,26 @@ int	*bubble_sort(int *array, size_t size)
 	return (array);
 }
 
-int	get_median(t_stack *a)
+int	get_median(t_stack *a, size_t unsorted_size)
 {
-	size_t	size;
 	int	*num_array;
 	int	i;
 	int	median;
 
-	size = my_lstsize(a);
-	num_array = (int *)malloc(sizeof(int) * size);
+	num_array = (int *)malloc(sizeof(int) * unsorted_size);
 	if (!num_array)
 		err_to_exit();
 	i = 0;
-	while (a)
+	while (i < unsorted_size)
 	{
 		num_array[i] = a->value;
 		a = a->next;
 		i++;
 	}
-	num_array = bubble_sort(num_array, size);
-	median = num_array[size / 2];
+	num_array = bubble_sort(num_array, unsorted_size);
+	median = num_array[unsorted_size / 2];
 	free(num_array);
 	return (median);
-}
-
-t_stack	* create_unsorted_stack(t_stack **a, size_t unsorted_size)
-{
-
 }
 
 void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
@@ -90,16 +83,12 @@ void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 	int	pb_times; // これ本当に必要?
 	int	pivot;
 	int	i;
-	t_stack	*unsorted_stack;
 
 	if (unsorted_size == 1)
 	{
 		return ;
 	}
-
-	unsorted_stack = create_unsorted_stack(a, unsorted_size);
-
-	pivot = get_median(unsorted_stack);
+	pivot = get_median(*a, unsorted_size);
 	ra_times = 0;
 	pb_times = 0;
 	i = 0;
@@ -133,11 +122,11 @@ void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
 	int	pivot;
 	int	i;
 
-	if (my_lstsize(*b) == 1)
+	if (unsorted_size == 1)
 	{
 		return ;
 	}
-	pivot = get_median(*b);
+	pivot = get_median(*b, unsorted_size);
 	rb_times = 0;
 	pa_times = 0;
 	i = 0;
