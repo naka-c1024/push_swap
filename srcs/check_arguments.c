@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:38:06 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 20:42:45 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 08:34:47 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	issame_num(int argc, int *value)
 		{
 			if (value[i] == value[j])
 			{
+				free(value);
 				err_to_exit();
 			}
 			j++;
@@ -73,16 +74,19 @@ void	check_argv(int argc, char *argv[])
 {
 	int	i;
 	int	j;
-	int	value[argc + 2];
+	int	*value;
 
 	i = 1;
 	j = 0;
+	value = (int *)malloc(sizeof(int) * (argc - 1));
+	if (!value)
+		err_to_exit();
 	while (i < argc)
 	{
 		value[j] = isint_atoi(argv[i]);
 		i++;
 		j++;
 	}
-	value[j] = '\0';
 	issame_num(argc, value);
+	free(value);
 }

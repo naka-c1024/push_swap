@@ -6,11 +6,16 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 20:56:16 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 08:25:19 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	quicksort(t_stack **a, t_stack **b)
+{
+	a_to_b(a, b, my_lstsize(*a));
+}
 
 void	sort(t_stack **a, t_stack **b)
 {

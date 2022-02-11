@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:57 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 20:51:54 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 08:28:45 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	print_cmd(int cmd);
 void	should_sort(t_stack *a);
 
 // sort_main.c
+void	quicksort(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
 
 // three_sort.c
@@ -90,12 +91,13 @@ int		get_min_ptr_nth(t_stack *a);
 void	pb_min(t_stack **a, t_stack **b);
 void	under_seven_sort(t_stack **a, t_stack **b, size_t a_size);
 
-// quicksort.c
-void	quicksort(t_stack **a, t_stack **b);
+// a_to_b.c
 void	under_three_sort_a(t_stack **a, t_stack **b, int unsorted_size);
+void	a_to_b(t_stack **a, t_stack **b, int unsorted_size);
+
+// b_to_a.c
 void	under_three_sort_b(t_stack **a, t_stack **b, int unsorted_size);
 void	b_to_a(t_stack **a, t_stack **b, int pb_times);
-void	a_to_b(t_stack **a, t_stack **b, int unsorted_size);
 
 // median.c
 int		*bubble_sort(int *array, size_t size);
