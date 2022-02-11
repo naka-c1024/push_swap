@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:48:30 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/06 14:35:27 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:02:05 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_stack	*my_lstnew(int value)
 {
 	t_stack	*new_element;
 
-	if (!value)
-		return (NULL);
 	new_element = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_element)
 		return (NULL);

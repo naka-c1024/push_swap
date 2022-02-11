@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 09:59:13 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:49:07 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ void	sort(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		quicksort(a, b); // 実装中
+		quicksort(a, b);
 	}
 }

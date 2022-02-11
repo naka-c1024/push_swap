@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:50 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 15:13:03 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:54:37 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,7 @@ int	main(int argc, char *argv[])
 	a = init_stack(argc, argv);
 	b = NULL;
 	should_sort(a);
-
-	sort(&a, &b); // 実装中
-
-	// while (a)
-	// {
-	// 	printf("%d\n", a->value);
-	// 	a = a->next;
-	// }
-
-	// my_lstclear(&a); // leak checkすること
-
-	// write(1, "all finish\n", 11); // debug
+	sort(&a, &b);
+	my_lstclear(&a);
 	return (0);
 }

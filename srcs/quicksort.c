@@ -6,13 +6,11 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 20:52:28 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 17:36:57 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:40:09 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	a_to_b(t_stack **a, t_stack **b, int pb_times); // 後で消す
 
 void	under_three_sort_a(t_stack **a, t_stack **b, int unsorted_size)
 {

@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 13:33:01 by ynakashi          #+#    #+#             */
-/*   Updated: 2021/10/24 17:56:47 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:00:07 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	main(void)
 	printf("%d = %d\n", ft_atoi(m),atoi(m));
 	char	n[] = " +--123-";
 	printf("%d = %d\n", ft_atoi(n),atoi(n));
+	char	o[] = "0";
+	printf("%d = %d\n", ft_atoi(o),atoi(o));
 }
  */
 // これはやらない
