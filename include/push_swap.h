@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:57 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 17:40:06 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:51:54 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@
 # include <stdbool.h>
 # include <limits.h>
 
-# include <stdio.h> // 後で消す
-
 typedef struct s_stack
 {
-	int				value; // long型でも良いかも
+	int				value;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -53,7 +51,6 @@ void	issame_num(int argc, int *value);
 
 // init_stack.c
 t_stack	*my_lstnew(int value);
-void	my_lstdelone(t_stack *lst);
 void	my_lstclear(t_stack **lst);
 t_stack	*my_lstlast(t_stack *lst);
 void	my_lstadd_back(t_stack **lst, t_stack *new);
@@ -101,7 +98,7 @@ void	b_to_a(t_stack **a, t_stack **b, int pb_times);
 void	a_to_b(t_stack **a, t_stack **b, int unsorted_size);
 
 // median.c
-int	*bubble_sort(int *array, size_t size);
-int	get_median(t_stack *a, size_t unsorted_size);
+int		*bubble_sort(int *array, size_t size);
+int		get_median(t_stack *a, size_t unsorted_size);
 
 #endif

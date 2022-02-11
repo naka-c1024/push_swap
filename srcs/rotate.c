@@ -6,12 +6,11 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:49:33 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/08 13:50:15 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:55:46 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 void	rotate(t_stack *a)
 {

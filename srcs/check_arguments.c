@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:38:06 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/06 11:51:34 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:42:45 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	isint_atoi(char *str)
 {
 	size_t	i;
 	size_t	len;
-
 	int		sign;
 	long	ans;
 

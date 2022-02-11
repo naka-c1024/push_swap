@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:48:30 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 18:02:05 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:52:07 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ t_stack	*my_lstnew(int value)
 	return (new_element);
 }
 
-void	my_lstdelone(t_stack *lst)
-{
-	if (!lst)
-		return ;
-	free(lst);
-	lst = NULL;
-}
-
 void	my_lstclear(t_stack **lst)
 {
 	t_stack	*tmp;
@@ -41,7 +33,7 @@ void	my_lstclear(t_stack **lst)
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		my_lstdelone(*lst);
+		free(*lst);
 		*lst = tmp;
 	}
 }

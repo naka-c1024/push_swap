@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:21:11 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/08 13:22:37 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:53:48 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ void	push(t_stack **passive, t_stack **active)
 
 	if (!*active)
 		return ;
-
 	size = my_lstsize(*passive);
 	if (size == 0)
 		seconde_ptr = NULL;
 	else
 		seconde_ptr = (*passive);
-
 	tmp = (*active)->next;
 	my_lstadd_front(passive, *active);
 	*active = tmp;
-
 	(*passive)->next = seconde_ptr;
 }
+
 /*
 int	main(int argc, char *argv[])
 {

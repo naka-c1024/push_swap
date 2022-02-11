@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:46:28 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/08 14:47:21 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:55:21 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 void	reverse_rotate(t_stack *a)
 {
 	size_t	size;
-	int	i;
-	int	*tmp;
+	int		i;
+	int		*tmp;
 
 	if (!a)
 		return ;
-
 	size = my_lstsize(a);
 	tmp = (int *)malloc(size * sizeof(int));
 	if (!tmp)
 		return ;
-
 	tmp[0] = a->value;
 	a->value = (my_lstlast(a))->value;
 	a = a->next;
-
 	i = 0;
 	while (i < size - 1)
 	{

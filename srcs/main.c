@@ -6,13 +6,13 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:50 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 17:54:37 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:52:47 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	should_sort(t_stack *a) // leak対策done
+void	should_sort(t_stack *a)
 {
 	if (my_lstsize(a) == 1)
 	{

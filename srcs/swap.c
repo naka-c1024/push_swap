@@ -6,12 +6,11 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 16:44:00 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/06 16:52:07 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 20:57:01 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 size_t	my_lstsize(t_stack *lst)
 {
@@ -48,16 +47,13 @@ void	swap(t_stack **a)
 
 	size = my_lstsize(*a);
 	if (size <= 1)
-	{
-		return ; // return (false);とかもあり
-	}
+		return ;
 	if (size == 2)
 		third_ptr = NULL;
 	else
 		third_ptr = (*a)->next->next;
 	my_lstadd_front(a, (*a)->next);
 	(*a)->next->next = third_ptr;
-	// return (true);
 }
 
 /*
