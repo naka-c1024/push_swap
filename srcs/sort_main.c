@@ -6,158 +6,90 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 08:58:23 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/10 12:06:16 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 09:59:13 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// void	selection_sort(t_stack **a, t_stack **b, size_t a_size)
+// void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
 // {
+// 	int	ra_times;
+// 	int	pb_times;
+// 	int	pivot;
 // 	int	i;
 
-// 	i = 0;
-// 	while (i < a_size)
+// 	if (unsorted_size == 1)
 // 	{
-// 		pb_min(a, b);
+// 		return ;
+// 	}
+// 	pivot = get_median(*a, unsorted_size);
+// 	ra_times = 0;
+// 	pb_times = 0;
+// 	i = 0;
+// 	while (i < unsorted_size && *a)
+// 	{
+// 		if ((*a)->value > pivot)
+// 		{
+// 			exe_cmd(a, b, RA);
+// 			ra_times++;
+// 		}
+// 		else
+// 		{
+// 			exe_cmd(a, b, PB);
+// 			pb_times++;
+// 		}
+// 		*a = (*a)->next;
 // 		i++;
 // 	}
-// 	while (i--)
+// 	i = ra_times;
+// 	while (ra_times--)
 // 	{
-// 		exe_cmd(a, b, PA);
+// 		exe_cmd(a, b, RRA);
 // 	}
+// 	a_to_b(a, b, i);
+// 	b_to_a(a, b, pb_times);
 // }
 
-void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size); // 後でこれ消す
+// void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
+// {
+// 	int	rb_times;
+// 	int	pa_times; // これ本当に必要?
+// 	int	pivot;
+// 	int	i;
 
-int	*bubble_sort(int *array, size_t size)
-{
-	int i;
-	int j;
-	int tmp;
-
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (array[i] > array[j])
-			{
-				tmp = array[i];
-				array[i] = array[j];
-				array[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (array);
-}
-
-int	get_median(t_stack *a, size_t unsorted_size)
-{
-	int	*num_array;
-	int	i;
-	int	median;
-
-	num_array = (int *)malloc(sizeof(int) * unsorted_size);
-	if (!num_array)
-		err_to_exit();
-	i = 0;
-	while (i < unsorted_size)
-	{
-		num_array[i] = a->value;
-		a = a->next;
-		i++;
-	}
-	num_array = bubble_sort(num_array, unsorted_size);
-	median = num_array[unsorted_size / 2];
-	free(num_array);
-	return (median);
-}
-
-void	a_to_b(t_stack **a, t_stack **b, size_t unsorted_size)
-{
-	int	ra_times;
-	int	pb_times;
-	int	pivot;
-	int	i;
-
-	if (unsorted_size == 1)
-	{
-		return ;
-	}
-	pivot = get_median(*a, unsorted_size);
-	ra_times = 0;
-	pb_times = 0;
-	i = 0;
-	while (i < unsorted_size)
-	{
-		if ((*a)->value > pivot)
-		{
-			exe_cmd(a, b, RA);
-			ra_times++;
-		}
-		else
-		{
-			exe_cmd(a, b, PB);
-			pb_times++;
-		}
-		*a = (*a)->next;
-		i++;
-	}
-	i = ra_times;
-	while (ra_times--)
-	{
-		exe_cmd(a, b, RRA);
-	}
-	a_to_b(a, b, i);
-	b_to_a(a, b, pb_times);
-}
-
-void	b_to_a(t_stack **a, t_stack **b, size_t unsorted_size)
-{
-	int	rb_times;
-	int	pa_times; // これ本当に必要?
-	int	pivot;
-	int	i;
-
-	if (unsorted_size == 1)
-	{
-		return ;
-	}
-	pivot = get_median(*b, unsorted_size);
-	rb_times = 0;
-	pa_times = 0;
-	i = 0;
-	while (i < unsorted_size)
-	{
-		if ((*b)->value > pivot)
-		{
-			exe_cmd(a, b, RB);
-			rb_times++;
-		}
-		else
-		{
-			exe_cmd(a, b, PA);
-			pa_times++;
-		}
-		*b = (*b)->next;
-		i++;
-	}
-	while (rb_times--)
-	{
-		exe_cmd(a, b, RRB);
-	}
-	a_to_b(a, b, pa_times);
-	// b_to_a(a, b, unsorted_size / 2);
-}
-
-void	quicksort(t_stack **a, t_stack **b)
-{
-	a_to_b(a, b, my_lstsize(*a));
-}
+// 	if (unsorted_size == 1)
+// 	{
+// 		return ; // pa
+// 	}
+// 	pivot = get_median(*b, unsorted_size);
+// 	rb_times = 0;
+// 	pa_times = 0;
+// 	i = 0;
+// 	while (i < unsorted_size && *b)
+// 	{
+// 		// if ((*b)->value > pivot) // ここが逆
+// 		if ((*b)->value < pivot) // ここが逆
+// 		{
+// 			exe_cmd(a, b, RB);
+// 			rb_times++;
+// 		}
+// 		else
+// 		{
+// 			exe_cmd(a, b, PA);
+// 			pa_times++;
+// 		}
+// 		*b = (*b)->next;
+// 		i++;
+// 	}
+// 	i = rb_times;
+// 	while (rb_times--)
+// 	{
+// 		exe_cmd(a, b, RRB);
+// 	}
+// 	a_to_b(a, b, pa_times);
+// 	b_to_a(a, b, i);
+// }
 
 void	sort(t_stack **a, t_stack **b)
 {
@@ -174,7 +106,6 @@ void	sort(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		// selection_sort(a, b, a_size); // これではダメだった
-		quicksort(a, b);
+		quicksort(a, b); // 実装中
 	}
 }

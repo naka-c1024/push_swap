@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:57 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/09 13:37:23 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/11 10:00:37 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,12 @@ bool	is_sort(t_stack *a);
 int		get_min_ptr_nth(t_stack *a);
 void	pb_min(t_stack **a, t_stack **b);
 void	under_seven_sort(t_stack **a, t_stack **b, size_t a_size);
+
+// quicksort.c
+void	quicksort(t_stack **a, t_stack **b);
+
+// median.c
+int	*bubble_sort(int *array, size_t size);
+int	get_median(t_stack *a, size_t unsorted_size);
 
 #endif

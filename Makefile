@@ -6,7 +6,7 @@
 #    By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 09:33:10 by ynakashi          #+#    #+#              #
-#    Updated: 2022/02/10 11:59:57 by ynakashi         ###   ########.fr        #
+#    Updated: 2022/02/11 16:59:31 by ynakashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,3 +20,14 @@ debug :
 
 fclean :
 	rm $(NAME)
+
+# sh
+run :
+	ARG=$$(jot -r -s " " 3 -2147483648 2147483647); ./push_swap $$ARG | ./checker $$ARG
+	ARG=$$(jot -r -s " " 5 -2147483648 2147483647); ./push_swap $$ARG | ./checker $$ARG
+	ARG=$$(jot -r -s " " 100 -2147483648 2147483647); ./push_swap $$ARG | ./checker $$ARG
+	ARG=$$(jot -r -s " " 500 -2147483648 2147483647); ./push_swap $$ARG | ./checker $$ARG
+
+re :fclean $(NAME)
+
+kati : re run
