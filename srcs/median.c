@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 09:59:42 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 20:53:14 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:05:46 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	*bubble_sort(int *array, size_t size)
 {
-	int	i;
-	int	j;
-	int	tmp;
+	size_t	i;
+	size_t	j;
+	size_t	tmp;
 
 	i = 0;
 	while (i < size)
@@ -40,7 +40,7 @@ int	*bubble_sort(int *array, size_t size)
 int	get_median(t_stack *a, size_t unsorted_size)
 {
 	int		*num_array;
-	int		i;
+	size_t	i;
 	int		median;
 
 	i = 0;

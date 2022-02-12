@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:36:01 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/09 13:36:31 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:12:13 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	pb_min(t_stack **a, t_stack **b)
 
 	a_size = my_lstsize(*a);
 	nth = get_min_ptr_nth(*a);
-	if (nth < a_size / 2)
+	if (nth < (int)(a_size / 2))
 	{
 		while (nth--)
 			exe_cmd(a, b, RA);
@@ -57,7 +57,7 @@ void	pb_min(t_stack **a, t_stack **b)
 
 void	under_seven_sort(t_stack **a, t_stack **b, size_t a_size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < a_size - 3)

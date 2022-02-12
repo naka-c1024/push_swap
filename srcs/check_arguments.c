@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 10:38:06 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/12 08:34:47 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:03:45 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	isint_atoi(char *str)
 
 void	issame_num(int argc, int *value)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < argc - 1)

@@ -6,13 +6,13 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:23:47 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/11 21:02:21 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:10:39 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	case_three_sort(t_stack **a, t_stack **b)
+int	case_three_sort(t_stack **a)
 {
 	int	first;
 	int	second;
@@ -59,7 +59,7 @@ void	three_sort(t_stack **a, t_stack **b)
 
 	if (is_sort(*a))
 		return ;
-	case_num = case_three_sort(a, b);
+	case_num = case_three_sort(a);
 	if (case_num == 1)
 	{
 		exe_cmd(a, b, SA);

@@ -6,14 +6,14 @@
 #    By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 09:33:10 by ynakashi          #+#    #+#              #
-#    Updated: 2022/02/11 21:00:57 by ynakashi         ###   ########.fr        #
+#    Updated: 2022/02/12 09:02:55 by ynakashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 $(NAME) :
-	gcc srcs/* libft/libft.a -o $(NAME)
+	gcc -Wall -Wextra -Werror srcs/* libft/libft.a -o $(NAME)
 
 debug :
 	gcc -g srcs/* libft/libft.a -o $(NAME)

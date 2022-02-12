@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 15:56:57 by ynakashi          #+#    #+#             */
-/*   Updated: 2022/02/12 08:28:45 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:10:08 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	quicksort(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
 
 // three_sort.c
-int		case_three_sort(t_stack **a, t_stack **b);
+int		case_three_sort(t_stack **a);
 void	three_sort(t_stack **a, t_stack **b);
 bool	is_sort(t_stack *a);
 
