@@ -6,7 +6,7 @@
 #    By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 09:33:10 by ynakashi          #+#    #+#              #
-#    Updated: 2022/02/12 09:37:15 by ynakashi         ###   ########.fr        #
+#    Updated: 2022/02/13 15:51:44 by ynakashi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,7 @@ SRCS	=	./srcs/a_to_b.c\
 OBJS	=	$(SRCS:.c=.o)
 
 LIBFT_PATH	=	./libft/
-LIBFT_OBJS	=	$(LIBFT_PATH)*.o
-LIBFT_ARC	=	$(LIBFT_PATH)*.a
-LIBFT_MAKE	=	make -C $(LIBFT_PATH)
+LIBFT_ARC	=	$(LIBFT_PATH)libft.a
 
 # suffix rule
 # make -p で暗黙のルールが見れる
@@ -59,16 +57,18 @@ LIBFT_MAKE	=	make -C $(LIBFT_PATH)
 #	$(CC) $(CFLAGS) -c $(SRCS)
 
 $(NAME)	: $(OBJS)
-	$(LIBFT_MAKE)
+	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
 
 all		: $(NAME)
 
 clean	:
-	$(RM) $(OBJS) $(LIBFT_OBJS)
+	make clean -C $(LIBFT_PATH)
+	$(RM) $(OBJS)
 
 fclean	: clean
-	$(RM) $(NAME) $(LIBFT_ARC)
+	make fclean -C $(LIBFT_PATH)
+	$(RM) $(NAME)
 
 re		: fclean all
 
@@ -80,12 +80,12 @@ run		:
 	ARG=$$(jot -r -s " " 500 -2147483648 2147483647); ./push_swap $$ARG | ./checker $$ARG
 
 nm		: fclean $(OBJS)
-	$(LIBFT_MAKE)
+	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(NO_BUILTIN_FLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
 	nm -u $(NAME)
 
 debug	: fclean $(OBJS)
-	$(LIBFT_MAKE)
+	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(DEBUG_FLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
 
 .PHONY	: all clean fclean re run nm debug
