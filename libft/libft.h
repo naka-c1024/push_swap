@@ -6,7 +6,7 @@
 /*   By: ynakashi <ynakashi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 17:58:17 by ynakashi          #+#    #+#             */
-/*   Updated: 2021/08/27 22:20:15 by ynakashi         ###   ########.fr       */
+/*   Updated: 2022/02/13 09:10:46 by ynakashi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <ctype.h>
 # include <limits.h>
 # include <errno.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
